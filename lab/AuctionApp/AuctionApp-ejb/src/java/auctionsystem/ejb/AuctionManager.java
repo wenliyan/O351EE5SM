@@ -8,6 +8,8 @@ import auctionsystem.exception.AuctionException;
 import java.util.Collection;
 import java.util.Date;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -15,6 +17,9 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class AuctionManager implements AuctionManagerRemote, AuctionManagerLocal {
+
+    @PersistenceContext
+    private EntityManager em;
 
     public String communicationTest(String message) {
         System.out.println("AuctionManager.communicationTest: " + message);
